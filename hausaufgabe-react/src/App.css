@@ -36,3 +36,23 @@
     transform: rotate(360deg);
   }
 }
+
+.footer-navbar {
+  background: linear-gradient(135deg, #1a1a2e, #16213e);
+  padding: 20px;
+  color: #fff;
+}
+
+.footer-nav .footer-link {
+  color: #f0f0f0;
+  font-size: 1.1rem;
+  padding: 8px 15px;
+  border-radius: 5px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.footer-nav .footer-link:hover {
+  background-color: #4a4a8b;
+  color: #e0e0ff;
+  text-decoration: none;
+}
