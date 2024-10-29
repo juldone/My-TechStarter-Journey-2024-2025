@@ -1,0 +1,20 @@
+{
+  "name": "debugger",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "Finde und behebe alle Syntax- und Logikfehler im Code.\r Richte ESLint ein, um den Code zu prüfen.\r Konfiguriere Husky, um ESLint automatisch vor jedem Commit auszuführen.",
+  "devDependencies": {
+    "@eslint/js": "^9.13.0",
+    "eslint": "^9.13.0",
+    "globals": "^15.11.0"
+  },
+  "dependencies": {
+    "husky": "^9.1.6"
+  }
+}
