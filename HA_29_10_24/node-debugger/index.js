@@ -11,9 +11,10 @@ items.foreach((item) => {
 
     else 
     {
-        result.push(parseInt(item))
+        results.push(parseInt(item))
     }
 });
 
 console.log("Original items:", items)
 console.log("Filtered and transformed items:", results)
+// IST DER XCODE CORRECT ??
