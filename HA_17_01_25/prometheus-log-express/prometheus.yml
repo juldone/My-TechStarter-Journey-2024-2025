@@ -1,0 +1,9 @@
+global:
+  scrape_interval: 15s # Wie oft Prometheus Daten abfragt (Standard: alle 15 Sekunden)
+  evaluation_interval: 15s # Wie oft Regeln ausgewertet werden
+  scrape_timeout: 5s
+
+scrape_configs:
+  - job_name: "express-server" # Name des Jobs (wird in Prometheus angezeigt)
+    static_configs:
+      - targets: ["host.docker.internal:3400"] # Ziel: Dein Express-Server läuft auf Port 3000
