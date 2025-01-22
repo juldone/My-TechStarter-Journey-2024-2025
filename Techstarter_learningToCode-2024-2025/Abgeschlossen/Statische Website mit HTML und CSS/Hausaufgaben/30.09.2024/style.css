@@ -1,0 +1,222 @@
+html,
+body {
+  height: 100%; /* HTML und Body auf volle Höhe setzen */
+  margin: 0; /* Entfernt den Standardabstand */
+  display: flex;
+  flex-direction: column;
+  background-color: #1c2d48;
+}
+
+.header {
+  position: relative;
+  width: 100%;
+  height: 50%; /* Hält den Header auf 50% der Höhe des Fensters */
+  overflow: hidden;
+  /*z-index: 1000; */
+  background-color: #fff;
+}
+
+.navbar {
+  position: relative; /* Setzt die Navigation relativ zum Header */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.banner {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Deckt den gesamten Container ab */
+  display: block;
+}
+
+h1 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  margin: 0;
+}
+
+.menu {
+  position: absolute; /* Positioniert das Menü absolut im Header */
+  top: 30px; /* Setzt das Menü 20px vom unteren Rand */
+  left: 10%; /* Zentriert das Menü horizontal */
+  transform: translateX(-50%); /* Genaues Zentrieren mit translate */
+  display: flex;
+  justify-content: center; /* Elemente im Menü zentrieren */
+  gap: 5em; /* Abstand zwischen den Buttons */
+}
+
+.item {
+  flex: 1 1 calc(33.33% - 2em); /* Basisbreite von 33.33%, mit Abzug für den Abstand */
+  box-sizing: border-box; /* Bezieht Padding und Rand in die Breite mit ein */
+  padding: 1em 0.5em 1em 0.5em;
+  background-color: #333; /* Hintergrundfarbe der Boxen */
+  color: #fff; /* Textfarbe */
+  text-align: center;
+  transition: transform 0.2s; /* Weiche Übergänge für Effekte */
+  cursor: pointer;
+  border-radius: 10px; /* Runde Ecken */
+}
+
+.item:hover {
+  transform: scale(1.05); /* Vergrößert die Box leicht beim Hover */
+  background-color: #444; /* Ändert die Hintergrundfarbe beim Hover */
+}
+
+.button {
+  flex: 1 1 auto;
+  box-sizing: border-box;
+  padding: 1em 0.5em;
+  text-align: center;
+  color: #fff;
+  border-radius: 2em;
+  text-decoration: none;
+  font-weight: bolder;
+  font-size: 20px;
+  font-family: Arial, Helvetica, sans-serif;
+  transition: background-color 0.2s, color 0.2s;
+  background-image: linear-gradient(180deg, #495971, #45669a);
+}
+.button:hover {
+  color: #333;
+  background-image: linear-gradient(180deg, #6582ac, #2d65b9);
+}
+
+.footer {
+  background-color: #1c2d48;
+  color: #fff; /* Textfarbe */
+  text-align: center;
+  padding: 1em 0;
+  width: 100%;
+  margin-top: auto; /* Footer wird an den unteren Rand verschoben */
+}
+
+@media (max-width: 1200px) {
+  .item {
+    flex: 1 1 calc(50% - 2em); /* Basisbreite von 50% bei mittelgroßen Bildschirmen */
+  }
+}
+
+@media (max-width: 768px) {
+  .item {
+    flex: 1 1 calc(100% - 2em); /* Basisbreite von 100% bei kleinen Bildschirmen */
+    padding: 1em; /* Reduziertes Padding bei kleinen Bildschirmen */
+  }
+}
+
+@media (max-width: 480px) {
+  .footer {
+    font-size: 14px; /* Kleinere Schriftgröße im Footer bei kleinen Bildschirmen */
+  }
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.image-row {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 600px;
+  margin: 20px 0;
+}
+
+.image-row img {
+  width: 45%;
+}
+
+h2 {
+  text-align: center;
+}
+
+p {
+  text-align: center;
+}
+li {
+  text-align: center;
+  text-decoration: none;
+  list-style-type: none;
+  color: #22b9ff;
+}
+.flex {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: 0.5fr;
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+}
+
+.album-section {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* Genau 4 Spalten */
+  gap: 2em;
+  padding: 2em;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.album {
+  text-align: center;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+
+.album img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.album h3 {
+  margin: 1em 0;
+  font-size: 1.2em;
+  color: #282c34;
+}
+
+.album a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.album:hover {
+  transform: scale(1.05);
+}
+
+.biography-section {
+  max-width: 800px; /* Maximale Breite der Biographie-Sektion */
+  margin: 2em auto; /* Zentriert die Sektion mit Abstand nach oben und unten */
+  padding: 1.5em;
+  border-radius: 10px; /* Runde Ecken */
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1); /* Schatten für Tiefeneffekt */
+  text-align: center; /* Zentriert den Text */
+  font-family: Arial, sans-serif;
+  color: #333; /* Textfarbe */
+}
+
+.biography-section h2 {
+  font-size: 2em;
+  margin-bottom: 1em;
+  color: #000097; /* Rote Farbe für den Titel */
+}
+
+.biography-section p {
+  font-size: 1.5em;
+  line-height: 1.6;
+  color: #000000; /* Leicht dunklerer Grauton für den Text */
+}
+
+.Datenschutz {
+  text-decoration: none;
+  color: white;
+}
