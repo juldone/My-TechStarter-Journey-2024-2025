@@ -1,5 +1,6 @@
 # Firewall-Regeln optimieren
-# Das Skript muss mit Administratorrechten ausgeführt werden!
+# Das Skript muss mit Administratorrechten ausgeführt werden!!!
+# Bestimmte Ports werden blockiert (inbound)
 
 # Blockiere gefährliche Ports
 $blockPorts = @(135, 139, 445, 5357, 5040, 7680, 9100, 3702, 5353, 2869, 1900, 3389, 3387, 3392)
