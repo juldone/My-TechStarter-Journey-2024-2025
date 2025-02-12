@@ -1,7 +1,7 @@
-const { app } = require("@azure/functions");
-const fetch = require("node-fetch"); // ✅ Importiere node-fetch
+import { app } from "@azure/functions";
+import { fetch } from "undici";  // ✅ Fetch von Undici importieren
 
-app.http("MyHttpTrigger", {
+app.http("getProduct", {
   methods: ["GET"],
   authLevel: "anonymous",
   handler: async (request, context) => {
@@ -15,7 +15,7 @@ app.http("MyHttpTrigger", {
       : "https://dummyjson.com/products?limit=10";
 
     try {
-      const response = await fetch(apiUrl); // ✅ Funktioniert jetzt mit node-fetch
+      const response = await fetch(apiUrl);
       if (!response.ok) {
         return {
           status: 404,

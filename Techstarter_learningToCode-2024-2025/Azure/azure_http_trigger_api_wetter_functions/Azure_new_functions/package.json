@@ -1,15 +1,16 @@
 {
-  "name": "",
+  "name": "azure-product-api",
   "version": "1.0.0",
-  "description": "",
-  "main": "src/functions/*.js",
+  "description": "Azure Function zur Produktauflistung mit der DummyJSON API",
+  "main": "src/functions/index.js",
   "scripts": {
     "start": "func start",
     "test": "echo \"No tests yet...\""
   },
+  "type": "module",
   "dependencies": {
     "@azure/functions": "^4.0.0",
-    "node-fetch": "^3.3.2"
+    "undici": "^7.3.0"
   },
   "devDependencies": {
     "azure-functions-core-tools": "^4.x"
