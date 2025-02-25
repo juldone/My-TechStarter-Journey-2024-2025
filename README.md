@@ -17,7 +17,7 @@ Im Laufe dieses Jahres habe ich grundlegende und fortgeschrittene Konzepte der S
 
 ## 🔗 Mehr über mich erfahren
 
-[![Resume](https://img.shields.io/badge/-Lebenslauf-black?style=for-the-badge&logo=google-drive&logoColor=white)](https://drive.google.com/file/d/1jKmGBSh9RN3S3eGcZKNqFgKfN-1mR_lr/view?usp=sharing)
+![Resume](https://img.shields.io/badge/-Lebenslauf-black?style=for-the-badge&logo=google-drive&logoColor=white)
 [![Mail](https://img.shields.io/badge/-Sag%20Hallo!-black?style=for-the-badge&logo=gmail)](mailto:8julian@determeyer.info)
 [![Twitter](https://img.shields.io/badge/-X-black?style=for-the-badge&logo=twitter)](https://twitter.com/julesdone/)
 
