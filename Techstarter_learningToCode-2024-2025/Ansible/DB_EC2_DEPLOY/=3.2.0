@@ -1,0 +1,6 @@
+Starting galaxy collection install process
+Process install dependency map
+Starting collection install process
+Downloading https://galaxy.ansible.com/api/v3/plugin/ansible/content/published/collections/artifacts/community-postgresql-3.13.0.tar.gz to /home/jd1/.ansible/tmp/ansible-local-2952ivf6bo55/tmpzhk1hars/community-postgresql-3.13.0-fb8f7nrq
+Installing 'community.postgresql:3.13.0' to '/home/jd1/.ansible/collections/ansible_collections/community/postgresql'
+community.postgresql:3.13.0 was installed successfully

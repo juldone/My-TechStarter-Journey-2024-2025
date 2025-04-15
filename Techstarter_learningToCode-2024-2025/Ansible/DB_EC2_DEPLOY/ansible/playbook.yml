@@ -1,0 +1,93 @@
+---
+- name: Installiere und konfiguriere PostgreSQL auf EC2
+  hosts: all
+  become: yes
+
+  collections:
+    - community.postgresql
+
+  vars:
+    db_name: "mydatabase"
+    db_user: "myuser"
+    db_password: "mypassword"
+    postgres_password: "postgres_password" # Passwort für den PostgreSQL-Benutzer 'postgres'
+
+  tasks:
+    - name: Update und Upgrade der Paketliste
+      apt:
+        update_cache: yes
+        upgrade: dist
+        cache_valid_time: 3600
+
+    - name: Installiere benötigte Pakete
+      apt:
+        name:
+          - postgresql
+          - postgresql-contrib
+          - python3-psycopg2
+          - acl
+        state: present
+
+    - name: Finde installierte PostgreSQL-Version heraus
+      shell: psql -V | awk '{print $3}' | cut -d '.' -f1
+      register: pg_version_output
+
+    - name: Setze PostgreSQL-Version
+      set_fact:
+        postgres_version: "{{ pg_version_output.stdout }}"
+
+    - name: Stelle sicher, dass der PostgreSQL-Dienst läuft
+      service:
+        name: postgresql
+        state: started
+        enabled: yes
+
+    - name: Setze Passwort für den PostgreSQL-Benutzer 'postgres'
+      become: true
+      become_user: postgres
+      community.postgresql.postgresql_user:
+        name: postgres
+        password: "{{ postgres_password }}"
+        state: present
+
+    - name: Erstelle einen PostgreSQL-Benutzer
+      become: true
+      community.postgresql.postgresql_user:
+        name: "{{ db_user }}"
+        password: "{{ db_password }}"
+        role_attr_flags: "LOGIN,CREATEDB,CREATEROLE"
+        state: present
+        login_user: postgres
+        login_password: "{{ postgres_password }}"
+        login_host: localhost
+
+    - name: Erstelle eine PostgreSQL-Datenbank
+      become: true
+      community.postgresql.postgresql_db:
+        name: "{{ db_name }}"
+        owner: "{{ db_user }}"
+        encoding: UTF8
+        state: present
+        login_user: postgres
+        login_password: "{{ postgres_password }}"
+        login_host: localhost
+
+    - name: Erlaube remote Zugriff auf PostgreSQL
+      lineinfile:
+        path: "/etc/postgresql/{{ postgres_version }}/main/postgresql.conf"
+        regexp: "^#?listen_addresses\\s*="
+        line: "listen_addresses = '*'"
+      notify: Restart PostgreSQL
+
+    - name: Füge Zugriffsregel für remote Verbindungen hinzu
+      lineinfile:
+        path: "/etc/postgresql/{{ postgres_version }}/main/pg_hba.conf"
+        line: "host    all             all             0.0.0.0/0               md5"
+        create: yes
+      notify: Restart PostgreSQL
+
+  handlers:
+    - name: Restart PostgreSQL
+      service:
+        name: postgresql
+        state: restarted
