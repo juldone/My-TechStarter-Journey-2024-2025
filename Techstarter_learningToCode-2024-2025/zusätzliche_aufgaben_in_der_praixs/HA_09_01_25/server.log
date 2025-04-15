@@ -1,0 +1,11 @@
+{"level":"info","message":"Server running at http://localhost:3000","timestamp":"2025-01-09T19:56:20.871Z"}
+{"level":"info","message":"Received GET request for /","timestamp":"2025-01-09T19:56:23.095Z"}
+{"level":"info","message":"Received GET request for /","timestamp":"2025-01-09T20:01:38.470Z"}
+{"level":"info","message":"Received GET request for /","timestamp":"2025-01-09T20:02:34.188Z"}
+{"level":"info","message":"Server running at http://localhost:3000","timestamp":"2025-01-09T20:04:49.599Z"}
+{"level":"info","message":"Received GET request for /","timestamp":"2025-01-09T20:04:52.912Z"}
+{"level":"info","message":"Received GET request for /hello","timestamp":"2025-01-09T20:05:26.599Z"}
+{"level":"info","message":"Received GET request for /favicon.ico","timestamp":"2025-01-09T20:05:26.761Z"}
+{"level":"info","message":"Received GET request for /error","timestamp":"2025-01-09T20:05:51.438Z"}
+{"level":"info","message":"Received GET request for /error","timestamp":"2025-01-09T20:09:54.465Z"}
+{"level":"info","message":"Received GET request for /","timestamp":"2025-01-09T20:10:18.891Z"}
