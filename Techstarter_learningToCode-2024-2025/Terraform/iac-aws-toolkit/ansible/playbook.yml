@@ -1,0 +1,23 @@
+---
+- name: Konfiguriere EC2 Webserver
+  hosts: all
+  become: yes
+
+  tasks:
+    - name: Update apt und installiere Tools
+      apt:
+        name:
+          - nginx
+          - htop
+          - fail2ban
+          - git
+          - curl
+          - vim
+        update_cache: yes
+        state: present
+
+    - name: Starte nginx
+      service:
+        name: nginx
+        state: started
+        enabled: yes

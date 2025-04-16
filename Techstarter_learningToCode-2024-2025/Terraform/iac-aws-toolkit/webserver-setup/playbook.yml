@@ -1,0 +1,63 @@
+---
+- name: Richte EC2 Webserver mit SSL, Benutzer, Git & Monitoring ein
+  hosts: all
+  become: yes
+  vars_files:
+    - vars.yml
+
+  tasks:
+    - name: Benutzer "{{ web_user }}" anlegen
+      user:
+        name: "{{ web_user }}"
+        shell: /bin/bash
+        groups: sudo
+        create_home: yes
+
+    - name: Füge SSH-Key für "{{ web_user }}" hinzu
+      authorized_key:
+        user: "{{ web_user }}"
+        key: "{{ lookup('file', ssh_pubkey_path) }}"
+
+    - name: Installiere benötigte Pakete
+      apt:
+        name:
+          - nginx
+          - git
+          - curl
+          - htop
+          - fail2ban
+          - ufw
+          - software-properties-common
+        state: present
+        update_cache: yes
+
+    - name: Aktiviere UFW und erlaube nur SSH und HTTP/HTTPS
+      ufw:
+        rule: allow
+        name: "{{ item }}"
+      loop:
+        - OpenSSH
+        - "Nginx Full"
+      notify: Enable Firewall
+
+    - name: Konfiguriere nginx Default-Site (Placeholder)
+      copy:
+        src: files/index.html
+        dest: /var/www/html/index.html
+        owner: www-data
+        group: www-data
+        mode: "0644"
+
+    - name: Starte und aktiviere nginx
+      service:
+        name: nginx
+        state: started
+        enabled: yes
+
+    - name: Lege benutzerdefinierte index.html an
+      copy:
+        content: "<h1>Hello from Ansible & EC2!</h1>"
+        dest: /var/www/html/index.html
+        owner: www-data
+        group: www-data
+        mode: "0644"

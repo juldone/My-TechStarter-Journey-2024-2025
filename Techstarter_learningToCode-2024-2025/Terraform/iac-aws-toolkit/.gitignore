@@ -1,0 +1,37 @@
+# Terraform spezifische Ignorierregeln
+
+# .terraform-Verzeichnisse (enthalten Plugins und Zustand)
+.terraform/
+
+# Terraform-Zustandsdateien (diese können sensible Informationen enthalten)
+*.tfstate
+*.tfstate.*
+
+# Terraform-Datenbankdateien für die lokale Umgebung
+*.tfvars
+
+# Terraform-Provider und ausführbare Dateien
+*.zip
+*.tar.gz
+*.tar
+*.tgz
+
+# Automatisch generierte Log-Dateien
+*.log
+
+# Dateien für Terraform Workspaces
+*.tfvars.json
+
+# VSCode spezifische Ignorierregeln (falls du VSCode verwendest)
+.vscode/
+
+# Mac spezifische Ignorierregeln
+.DS_Store
+
+# Windows spezifische Ignorierregeln
+Thumbs.db
+
+# Weitere temporäre oder Systemdateien, die du ignorieren möchtest
+.idea/
+*.swp
+*.bak

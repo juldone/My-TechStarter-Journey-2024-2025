@@ -1,0 +1,4 @@
+web_user: deploy
+ssh_pubkey_path: /home/jd1/.ssh/hi_rsa.pub
+ssl_email: "" # leer lassen
+domain: "" # leer lassen oder entfernen
